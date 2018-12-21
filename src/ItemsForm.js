@@ -1,4 +1,6 @@
 import React from 'react';
+import { Form, Container, Button } from 'semantic-ui-react'
+
 
 class ItemsForm extends React.Component {
 
@@ -21,27 +23,30 @@ class ItemsForm extends React.Component {
         const { name }=this.state
         const { price }=this.state
         return (
-            <form onSubmit={this.handleSubmit}>
-                <input 
+            <Container textAlign='center' style={{paddingTop:'30px', margin:'10px', width: '87%'}}>
+            <Form onSubmit={this.handleSubmit}>
+                <Form.Group widths="equal">
+                <Form.Input fluid
                 value={name}
                 name="name"
                 onChange={this.handleChange}
                 required 
                 placeholder="Add An Item" />
 
-                <input 
+                <Form.Input 
+                fluid
                 value={price}
                 name="price"
                 onChange={this.handleChange}
                 required 
                 placeholder="Add A Price" />
-                <button type="submit">Submit</button>
-            </form>
+                </Form.Group> <br />
+                <Button color="red" type="submit">Submit</Button><br/><br/>
+            
+            </Form>
+            </Container>
         )
     }
 }
-
-
-
 
 export default ItemsForm;
